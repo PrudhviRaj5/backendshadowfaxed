@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'audiofield',
     'mobile'
 ]
 
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'audiofield.middleware.threadlocals.ThreadLocals',
             ],
         },
     },
@@ -123,3 +125,8 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = 'localhost:8000/'
 MEDIA_ROOT = '/media/'
+CHANNEL_TYPE_VALUE = 0
+FREQ_TYPE_VALUE = 8000
+CONVERT_TYPE_VALUE = 0
+
+APPEND_SLASH=False
