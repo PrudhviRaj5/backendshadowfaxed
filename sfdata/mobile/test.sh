@@ -1,5 +1,5 @@
-OLD_FILE='./media-chunk/sample.3gp'
-NEW_FILE='./media-chunk/sample.wav'
+OLD_FILE='./mobile/media-chunk/sample.3gp'
+NEW_FILE='./mobile/media-chunk/sample.wav'
 
 rm $NEW_FILE
 

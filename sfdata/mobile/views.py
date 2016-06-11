@@ -11,30 +11,12 @@ from rest_framework.decorators import api_view
 from mongo_connection import QGMongo
 import re
 import speech_recognition as sr
-from audiofield.fields import AudioField
 from subprocess import call
-import shlex
 import os
 # Create your views here. 
 
 
 def test(request):
-    # return HttpResponse('Your test is working')
-
-    call(['bash', '.mobile/test.sh'])
-    # call(shlex.split('bash test.sh'))
-    # os.system('ffmpeg -i ./mobile/media-chunk/sample.3gp ./mobile/media-chunk/sample.wav')
-    AUDIO_FILE = './mobile/media-chunk/sample.wav'
-    r = sr.Recognizer()
-    with sr.AudioFile(AUDIO_FILE) as source:
-        audio = r.record(source)
-    try:
-        print('Google Speech Recognition thinks you said ' + r.recognize_google(audio))
-    except sr.UnknownValueError:
-        print('Google Speech Recognition could not understand audio')
-    except sr.RequestError as e:
-        print('Could not request results from Google Speech Recognition service; {0}'.format(e))
-
     return HttpResponse('Your test is working')
 
 
@@ -50,7 +32,7 @@ def post_audio_to_speech(request):
         return Response({'status': 'fail', 'msg': str(e)}, status=404)
     # convert 3gp to wav api
     try:
-        call(['bash', '.mobile/test.sh'])
+        call(['bash', './mobile/test.sh'])
         AUDIO_FILE = './mobile/media-chunk/sample.wav'
         r = sr.Recognizer()
         with sr.AudioFile(AUDIO_FILE) as source:
